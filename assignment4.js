@@ -11,7 +11,49 @@
 // $.html(), $.text(), etc.
 // keyup events could be helpful to get value of field as the user types
 
+var all;
+
 (function() {
-  // Magic!
-  console.log('Keepin\'n it clean with an external script!');
+	var comics;
+	var interests;
+	var programming;
+  $.ajax({
+	  async:false,
+	  url: 'http://www.mattbowytz.com/simple_api.json?data=interests',
+	  type: 'GET',
+	  text:'text',
+	  success: function(data){
+		  interests = data;
+
+	  }
+  })
+    $.ajax({
+	  async:false,
+	  url: 'http://www.mattbowytz.com/simple_api.json?data=programming',
+	  type: 'GET',
+	  text:'text',
+	  success: function(data){
+		  programming = data;
+
+	  }
+  })
+    $.ajax({
+	  async:false,
+	  url: 'http://www.mattbowytz.com/simple_api.json?data=comics',
+	  type: 'GET',
+	  text:'text',
+	  success: function(data){
+		  comics = data;
+
+	  }
+  })
+ 
 })();
+
+
+$(".flexsearch-input").keyup(function(){
+	var input = $('input.flexsearch-input').val();
+	var output = [];
+	
+
+});
